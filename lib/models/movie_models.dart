@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 class MovieModel {
   bool? adult;
   String? backdropPath;
@@ -31,20 +33,22 @@ class MovieModel {
       this.voteCount});
 
   MovieModel.fromJson(Map<String, dynamic> json) {
-    adult = json['adult'];
-    backdropPath = json['backdrop_path'];
-    genreIds = json['genre_ids'].cast<int>();
-    id = json['id'];
-    originalLanguage = json['original_language'];
-    originalTitle = json['original_title'];
-    overview = json['overview'];
-    popularity = json['popularity'];
-    posterPath = json['poster_path'];
-    releaseDate = json['release_date'];
-    title = json['title'];
-    video = json['video'];
-    voteAverage = json['vote_average'];
-    voteCount = json['vote_count'];
+    try {
+      adult = json['adult'];
+      backdropPath = json['backdrop_path'];
+      genreIds = json['genre_ids'].cast<int>();
+      id = json['id'];
+      originalLanguage = json['original_language'];
+      originalTitle = json['original_title'];
+      overview = json['overview'];
+      popularity = json['popularity'];
+      posterPath = json['poster_path'];
+      releaseDate = json['release_date'];
+      title = json['title'];
+      video = json['video'];
+      voteAverage = json['vote_average'];
+      voteCount = json['vote_count'];
+    } catch (e) {}
   }
 
   Map<String, dynamic> toJson() {

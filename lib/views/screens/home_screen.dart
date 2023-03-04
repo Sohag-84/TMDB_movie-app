@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../pages/movie_home.dart';
+import '../pages/movie/movie_home.dart';
 import '../pages/tv_home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 94, 91, 91),
       appBar: AppBar(
         title: Text("Movie App"),
         centerTitle: true,
