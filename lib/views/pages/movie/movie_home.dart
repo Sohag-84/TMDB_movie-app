@@ -18,32 +18,50 @@ class MovieHome extends StatefulWidget {
 class _MovieHomeState extends State<MovieHome> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        5.h.ph,
-        FutureBuilder(
-          future: ApiService().getMovieApi(MovieType.nowPlaying),
-          builder: (context, AsyncSnapshot snapshot) {
-            List<MovieModel> movieData = snapshot.data ?? [];
-            if (snapshot.hasData) {
-              return MovieSlider(
-                movieList: movieData,
-              );
-            } else {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        ),
-        8.h.ph,
-        Text(
-          "Popular Movie",
-          style: TextStyle(fontSize: 20.sp, color: Colors.white),
-        ),
-        5.h.ph,
-        MovieCategory(height: 160.h, movieType: MovieType.popular),
-      ],
+    return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        children: [
+          5.h.ph,
+          FutureBuilder(
+            future: ApiService().getMovieApi(MovieType.nowPlaying),
+            builder: (context, AsyncSnapshot snapshot) {
+              List<MovieModel> movieData = snapshot.data ?? [];
+              if (snapshot.hasData) {
+                return MovieSlider(
+                  movieList: movieData,
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
+          8.h.ph,
+          Text(
+            "Popular Movie",
+            style: TextStyle(fontSize: 20.sp, color: Colors.white),
+          ),
+          5.h.ph,
+          MovieCategory(height: 160.h, movieType: MovieType.popular),
+          8.h.ph,
+          Text(
+            "Top Rated Movie",
+            style: TextStyle(fontSize: 20.sp, color: Colors.white),
+          ),
+          5.h.ph,
+          MovieCategory(height: 160.h, movieType: MovieType.topRated),
+          8.h.ph,
+          Text(
+            "Upcoming Movie",
+            style: TextStyle(fontSize: 20.sp, color: Colors.white),
+          ),
+          5.h.ph,
+          MovieCategory(height: 160.h, movieType: MovieType.upcoming),
+          5.h.ph,
+        ],
+      ),
     );
   }
 }
