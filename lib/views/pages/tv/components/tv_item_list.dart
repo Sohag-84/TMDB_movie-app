@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tmdb_movie_app/constant/constant.dart';
-import 'package:tmdb_movie_app/models/movie_models.dart';
+import 'package:tmdb_movie_app/models/tv_model.dart';
 import 'package:tmdb_movie_app/uitils/sized_box.dart';
 
-class MovieItem extends StatelessWidget {
-  final MovieModel movieItem;
-  const MovieItem({Key? key, required this.movieItem}) : super(key: key);
+class TvItem extends StatelessWidget {
+  final TvModel tvItem;
+  const TvItem({Key? key, required this.tvItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +26,14 @@ class MovieItem extends StatelessWidget {
               height: 120.h,
               width: 110.w,
               fit: BoxFit.fill,
-              imageUrl: movieImgBaseUrl + movieItem.posterPath.toString(),
+              imageUrl: movieImgBaseUrl + tvItem.posterPath.toString(),
               placeholder: (context, url) =>
                   Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
           Text(
-            movieItem.title.toString(),
+            tvItem.name.toString(),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -46,7 +46,7 @@ class MovieItem extends StatelessWidget {
             children: [
               RatingBarIndicator(
                 itemCount: 10,
-                rating: movieItem.voteAverage ?? 0,
+                rating: tvItem.voteAverage ?? 0,
                 itemSize: 8.h,
                 itemBuilder: (context, index) {
                   return Icon(
@@ -57,10 +57,8 @@ class MovieItem extends StatelessWidget {
               ),
               2.pw,
               Text(
-                movieItem.voteAverage == null
-                    ? ""
-                    : movieItem.voteAverage.toString(),
-                style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                tvItem.voteAverage == null ? "" : tvItem.voteAverage.toString(),
+                style: TextStyle(color: Colors.white,fontSize: 12.sp),
               ),
             ],
           )

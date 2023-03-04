@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../pages/movie/movie_home.dart';
-import '../pages/tv_home.dart';
+import '../pages/tv/tv_home.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
