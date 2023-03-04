@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tmdb_movie_app/models/movie_models.dart';
 import 'package:tmdb_movie_app/services/api_service.dart';
 import 'package:tmdb_movie_app/views/pages/movie/components/movie_slider.dart';
+import 'package:tmdb_movie_app/uitils/sized_box.dart';
 
 class MovieHome extends StatefulWidget {
   const MovieHome({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _MovieHomeState extends State<MovieHome> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 5.h),
+        5.h.ph,
         FutureBuilder(
           future: ApiService().getMovieApi(MovieType.nowPlaying),
           builder: (context,AsyncSnapshot snapshot) {
