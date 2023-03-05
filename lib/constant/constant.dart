@@ -8,6 +8,7 @@ const upcomingMovieUrl = "upcoming";
 
 const videosUrl = "/videos";
 const similarUrl = "/similar";
+const creditUlr = "/credits";
 
 //tv
 const tvBaseUrl = "https://api.themoviedb.org/3/tv/";

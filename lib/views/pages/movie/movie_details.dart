@@ -9,6 +9,7 @@ import 'package:tmdb_movie_app/models/movie_models.dart';
 import 'package:tmdb_movie_app/models/video_model.dart';
 import 'package:tmdb_movie_app/services/api_service.dart';
 import 'package:tmdb_movie_app/uitils/sized_box.dart';
+import 'package:tmdb_movie_app/components/cast_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'components/movie_category.dart';
@@ -124,6 +125,16 @@ class MovieDetails extends StatelessWidget {
                       fontSize: 18.sp,
                       color: Colors.white.withOpacity(.80),
                     ),
+                  ),
+                  8.h.ph,
+                  Text(
+                    "Cast",
+                    style: TextStyle(fontSize: 20.sp, color: Colors.white),
+                  ),
+                  5.h.ph,
+                  CastData(
+                    programType: ProgramType.movie,
+                    id: movieData.id ?? 0,
                   ),
                   8.h.ph,
                   Text(
