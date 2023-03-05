@@ -5,6 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tmdb_movie_app/models/movie_models.dart';
+import 'package:tmdb_movie_app/views/pages/movie/movie_details.dart';
 
 import '../../../../constant/constant.dart';
 
@@ -17,15 +18,26 @@ class MovieSlider extends StatelessWidget {
     return CarouselSlider.builder(
       itemCount: movieList.length,
       itemBuilder: (context, index, realIndex) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(10.r),
-          child: CachedNetworkImage(
-            width: double.infinity,
-            fit: BoxFit.fill,
-            imageUrl: movieImgBaseUrl + movieList[index].posterPath.toString(),
-            placeholder: (context, url) =>
-                Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+        return InkWell(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MovieDetails(
+                movieData: movieList[index],
+              ),
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.r),
+            child: CachedNetworkImage(
+              width: double.infinity,
+              fit: BoxFit.fill,
+              imageUrl:
+                  movieImgBaseUrl + movieList[index].posterPath.toString(),
+              placeholder: (context, url) =>
+                  Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
           ),
         );
       },
