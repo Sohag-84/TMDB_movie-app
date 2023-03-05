@@ -9,16 +9,18 @@ import 'tv_item_list.dart';
 class TvCategory extends StatelessWidget {
   final double height;
   final TvType tvType;
+  final int tvShowId;
   const TvCategory({
     Key? key,
     required this.height,
     required this.tvType,
+    this.tvShowId = 0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiService().getTvApi(tvType),
+        future: ApiService().getTvApi(tvType,tvShowId: tvShowId),
         builder: (context, AsyncSnapshot snapshot) {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());

@@ -50,7 +50,7 @@ class ApiService {
     }
   }
 
-  Future<List<TvModel>> getTvApi(TvType type) async {
+  Future<List<TvModel>> getTvApi(TvType type, {tvShowId = 0}) async {
     String url = "";
 
     if (type == TvType.airingToday) {
@@ -61,6 +61,8 @@ class ApiService {
       url = tvBaseUrl + topRatedMovieUrl;
     } else if (type == TvType.onTheAir) {
       url = tvBaseUrl + onTheAirTvUrl;
+    } else if (type == TvType.similar) {
+      url = tvBaseUrl + tvShowId.toString() + similarUrl;
     }
 
     try {
@@ -116,6 +118,7 @@ class ApiService {
       throw e.toString();
     }
   }
+
   Future<List<CastModel>> getCastApi({
     required int id,
     required ProgramType type,
