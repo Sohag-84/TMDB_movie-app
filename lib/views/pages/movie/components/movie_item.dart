@@ -25,7 +25,8 @@ class MovieItem extends StatelessWidget {
         );
       },
       child: Container(
-        width: 110.w,
+        width: 125.w,
+        height: 200,
         margin: EdgeInsets.all(3.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,8 +34,8 @@ class MovieItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(7.r),
               child: CachedNetworkImage(
-                height: 120.h,
-                width: 110.w,
+                height: 160.h,
+                width: 150.w,
                 fit: BoxFit.fill,
                 imageUrl: movieImgBaseUrl + movieItem.posterPath.toString(),
                 placeholder: (context, url) =>

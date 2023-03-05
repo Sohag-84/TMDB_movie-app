@@ -7,6 +7,7 @@ const topRatedMovieUrl = "top_rated";
 const upcomingMovieUrl = "upcoming";
 
 const videosUrl = "/videos";
+const similarUrl = "/similar";
 
 //tv
 const tvBaseUrl = "https://api.themoviedb.org/3/tv/";

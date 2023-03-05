@@ -6,14 +6,14 @@ import 'package:tmdb_movie_app/models/movie_models.dart';
 import 'package:tmdb_movie_app/models/tv_model.dart';
 import 'package:tmdb_movie_app/models/video_model.dart';
 
-enum MovieType { nowPlaying, popular, topRated, upcoming }
+enum MovieType { nowPlaying, popular, topRated, upcoming, similar }
 
-enum TvType { airingToday, onTheAir, topRated, popular }
+enum TvType { airingToday, onTheAir, topRated, popular, similar }
 
 enum ProgramType { tv, movie }
 
 class ApiService {
-  Future<List<MovieModel>> getMovieApi(MovieType type) async {
+  Future<List<MovieModel>> getMovieApi(MovieType type, {movieId = 0}) async {
     String url = "";
 
     if (type == MovieType.nowPlaying) {
@@ -24,6 +24,8 @@ class ApiService {
       url = baseUrl + topRatedMovieUrl;
     } else if (type == MovieType.upcoming) {
       url = baseUrl + upcomingMovieUrl;
+    } else if (type == MovieType.similar) {
+      url = baseUrl + movieId.toString() + similarUrl;
     }
 
     try {

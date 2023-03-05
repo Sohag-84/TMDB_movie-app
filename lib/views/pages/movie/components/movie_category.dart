@@ -8,16 +8,18 @@ import 'package:tmdb_movie_app/views/pages/movie/components/movie_item.dart';
 class MovieCategory extends StatelessWidget {
   final double height;
   final MovieType movieType;
+  final int movieId;
   const MovieCategory({
     Key? key,
     required this.height,
     required this.movieType,
+    this.movieId = 0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiService().getMovieApi(movieType),
+        future: ApiService().getMovieApi(movieType,movieId: movieId),
         builder: (context, AsyncSnapshot snapshot) {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
