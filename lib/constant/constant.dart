@@ -6,6 +6,8 @@ const nowPlayingMovieUrl = "now_playing";
 const topRatedMovieUrl = "top_rated";
 const upcomingMovieUrl = "upcoming";
 
+const videosUrl = "/videos";
+
 //tv
 const tvBaseUrl = "https://api.themoviedb.org/3/tv/";
 const airingTodayTvUrl = "airing_today";
